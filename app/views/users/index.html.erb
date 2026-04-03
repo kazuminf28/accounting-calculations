@@ -1,0 +1,21 @@
+<h1>ユーザーの一覧</h1>
+
+<%= link_to "ユーザー追加", new_user_path %>
+
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <th>操作</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td> <%= user.name %> </td>
+      <td>
+        <%= button_to "削除", user_path(user), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "トップへ", root_path %>

@@ -1,0 +1,45 @@
+<h1> 商品詳細 </h1>
+
+<h2> 商品追加 </h2>
+
+<%= form_with model: @item, local: true do |f| %> #fはフォーム操作用のオブジェクト
+    <div>
+      名前: <%= f.text_field :name %> #商品名
+    </div>
+
+    <div>
+      金額: <%= f.number_field :price %> #数字専用
+    </div>
+
+    <div>
+      ユーザー:
+      <%= f.collection_select :user_id, @users, :id, :name, include_blank: true %>
+    </div>
+
+    <div>
+      割り勘:
+      <%= f.check_box :shared %> #割り勘かどうか
+    </div>
+
+    <%= f.submit "追加" %>
+<% end %>
+
+<hr>
+
+<h2> 商品一覧 </h2>
+
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <%= item.name %> - <%= item.price %>円
+      <% if item.shared %>
+        (割り勘)
+      <% else %>
+        (<%= item.user&.name %>) #&.を入れてnilを安全に
+      <% end %>
+      <%= button_to "削除", item_path(item), method: :delete %>
+    </li>
+  <% end %>
+<ul>
+
+<%= link_to "トップへ", root_path %>

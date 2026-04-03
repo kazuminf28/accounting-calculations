@@ -1,0 +1,25 @@
+<%= link_to "ユーザー管理へ", users_path %>
+<%= link_to "商品追加へ", items_path %>
+
+<h1> 会計一覧 </h1>
+
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <th>個別合計</th>
+    <th>割り勘</th>
+    <th>合計支払額</th>
+  </tr>
+
+<% User.all.each do |user| %>
+    <tr>
+    <td> <%= user.name %> : </td>
+    <td> <%= user.personal_total %>円 </td>
+    <td> <%= Item.shared_per_person %>円 </td>
+    <td> <%= user.total_payment %>円 </td>
+    </tr>
+<% end %>
+</table>
+
+<h2>割り勘合計: <%= Item.shared_total %>円</h2>
+<h2>一人当たり: <%= Item.shared_per_person %>円</h2>
