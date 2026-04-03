@@ -1,24 +1,12 @@
-# README
+# 会計アプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ユーザーごとに商品を登録し、割り勘管理ができるアプリです。
 
-Things you may want to cover:
+## 機能
+- ユーザー登録・削除
+- 商品追加・削除
+- 割り勘フラグ管理
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用技術
+- Ruby on Rails
+- SQLite
